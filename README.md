@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Dockerfile for OpenVPN in a container</title>
-</head>
-
 <body>
   <h1>Dockerfile for OpenVPN in a container</h1>
 
