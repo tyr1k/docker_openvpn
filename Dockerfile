@@ -1,16 +1,16 @@
-#Dockerfile, который устанавливает и настраивает OpenVPN в контейнере
+#Dockerfile that installs and configures OpenVPN in a container
 FROM ubuntu:latest
 
-# Установка необходимых пакетов
+#Install necessary packages
 RUN apt-get update && apt-get install -y openvpn
 
-# Копирование файлов конфигурации
+#Copy configuration files
 COPY openvpn.conf /etc/openvpn/
 COPY client.ovpn /etc/openvpn/
 
-# Настройка OpenVPN
+#Configure OpenVPN
 RUN sed -i 's/;user nobody/user nobody/' /etc/openvpn/openvpn.conf
 RUN sed -i 's/;group nogroup/group nogroup/' /etc/openvpn/openvpn.conf
 
-# Запуск OpenVPN
+#Run OpenVPN
 CMD ["/usr/sbin/openvpn", "--config", "/etc/openvpn/openvpn.conf"]
